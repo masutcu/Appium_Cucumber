@@ -12,10 +12,8 @@ public class Screens {
     private PreferenceScreen preferenceScreen;
     private PreferenceDependenciesScreen preferenceDependenciesScreen;
     private SwichScreen switchScreen;
-
-
-//    private ViewsScreen viewsScreen;
-//    private DragAndDropScreen dragAndDropScreen;
+    private ViewScreen viewScreen;
+    private DragAndDropeScreen dragAndDropScreen;
 //    private DateWidgetsScreen dateWidgetsScreen;
 //    private PopupMenuScreen popupMenuScreen;
 //    private AlertViewScreen alertViewScreen;
@@ -64,20 +62,20 @@ public class Screens {
 //        return dateWidgetsScreen;
 //    }
 //
-//    public DragAndDropScreen dragAndDropScreen(){
-//        if (dragAndDropScreen == null){
-//            dragAndDropScreen = new DragAndDropScreen();
-//        }
-//        return dragAndDropScreen;
-//    }
-//
-//    public ViewsScreen viewsScreen(){
-//        if (viewsScreen == null) {
-//            viewsScreen = new ViewsScreen();
-//        }
-//        return viewsScreen;
-//    }
-//
+    public DragAndDropeScreen dragAndDropScreen(){
+        if (dragAndDropScreen == null){
+            dragAndDropScreen = new DragAndDropeScreen();
+        }
+        return dragAndDropScreen;
+    }
+
+    public ViewScreen viewsScreen(){
+        if (viewScreen == null) {
+            viewScreen = new ViewScreen();
+        }
+        return viewScreen;
+    }
+
 
 
     public ApiDemosScreen apiDemosScreen() {

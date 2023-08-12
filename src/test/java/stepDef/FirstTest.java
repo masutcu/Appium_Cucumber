@@ -143,4 +143,13 @@ public class FirstTest extends ReusableMethods {
             ReusableMethods.tapOn(dd1);
         }
     }
+
+    @And("kullanici views buttonuna tiklar")
+    public void kullaniciViewsButtonunaTiklar() {
+        WebElement cd = screen.apiDemosScreen().views;
+
+        ReusableMethods.tapOn(cd);
+    }
+
+
 }

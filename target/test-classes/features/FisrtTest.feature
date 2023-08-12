@@ -12,6 +12,7 @@ Feature: API Demos test
     Then WiFi setting popup geldi
     And kullanici "<text>" yazdi
     And kullanci ok butonuna tikladi
+    And screenshot al
     Examples:
       | text   |
       | Mahmut |
