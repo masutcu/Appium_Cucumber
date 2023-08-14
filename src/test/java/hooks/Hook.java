@@ -1,24 +1,16 @@
 package hooks;
 
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
-
-import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
-import java.awt.desktop.QuitEvent;
 import java.io.IOException;
-import java.net.Socket;
 import java.time.Duration;
 
 import static utilities.Driver.*;
@@ -43,15 +35,13 @@ public class Hook {
            try {
                appiumServer = AppiumDriverLocalService.buildService(builder);
            } catch (Exception e) {
-               System.out.println("Calismadi");
+               System.out.println("APPIUM SERVER NOT ASSIGN");
            }
-
-           Thread.sleep(8000);
            try {
 
                appiumServer.start();
            } catch (Exception e) {
-               System.out.println("calismadi");
+               System.out.println("APPIUM SERVER NOT START");
            }
 
 
@@ -67,7 +57,7 @@ public class Hook {
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-     appiumDriver.quit();
+        Driver.quitAppiumDriver();
 
     }
 
