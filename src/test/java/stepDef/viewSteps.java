@@ -81,8 +81,34 @@ public class viewSteps extends ReusableMethods {
         ReusableMethods.longTap(appiumDriver,screen.viewsScreen().PeopleNames);
     }
 
-    @And("Scroll")
-    public void scroll() {
-        ReusableMethods.scroll(appiumDriver);
+
+
+
+
+
+    @And("{int} kez Scroll yapilacak")
+    public void kezScrollYapilacak(int arg0) throws InterruptedException {
+
+        ReusableMethods.scroll(appiumDriver, arg0);
+    }
+
+    @And("{string} elementine  scroll yapilarak tiklar")
+    public void elementineScrollYapilarakTiklar(String arg0) throws InterruptedException {
+
+        ReusableMethods.tabOnElementWithText(arg0);
+    }
+
+    @And("Make A Popup butonuna tiklar")
+    public void makeAPopupButonunaTiklar() {
+
+        WebElement make= screen.popupMenuScreen().makeAPopUp;
+
+        ReusableMethods.tapOn(make);
+    }
+
+    @Then("Kullanici Search button tiklar")
+    public void kullaniciSearchButtonTiklar() {
+        WebElement ds= screen.popupMenuScreen().searchPup;
+        ReusableMethods.tapOn(ds);
     }
 }

@@ -15,7 +15,7 @@ public class Screens {
     private ViewScreen viewScreen;
     private DragAndDropeScreen dragAndDropScreen;
 //    private DateWidgetsScreen dateWidgetsScreen;
-//    private PopupMenuScreen popupMenuScreen;
+  private PopUpMenuScreen popupMenuScreen;
 //    private AlertViewScreen alertViewScreen;
 //    private PickerViewScreen pickerViewScreen;
 //    private SwitchesiOSScreen switchesiOSScreen;
@@ -48,12 +48,12 @@ public class Screens {
 //        return alertViewScreen;
 //    }
 //
-//    public PopupMenuScreen popupMenuScreen() {
-//        if (popupMenuScreen == null) {
-//            popupMenuScreen = new PopupMenuScreen();
-//        }
-//        return popupMenuScreen;
-//    }
+    public PopUpMenuScreen popupMenuScreen() {
+        if (popupMenuScreen == null) {
+            popupMenuScreen = new PopUpMenuScreen();
+        }
+        return popupMenuScreen;
+    }
 //
 //    public DateWidgetsScreen dateWidgetsScreen(){
 //        if (dateWidgetsScreen == null){

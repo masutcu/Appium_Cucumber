@@ -1,4 +1,4 @@
-@scroll
+@pasha
 Feature: Scroll
 
   Scenario:Scroll

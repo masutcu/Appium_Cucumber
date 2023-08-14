@@ -32,27 +32,33 @@ public class Hook {
     public void setUp() throws InterruptedException {
         //it starts appium server
         forceStopAppiumServer();
-        AppiumServiceBuilder builder = new AppiumServiceBuilder();
-        builder
+       do {
+           AppiumServiceBuilder builder = new AppiumServiceBuilder();
+           builder
 //                        .withAppiumJS(new File("C:\\Users\\Mustafa\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
 //                        .usingDriverExecutable(new File("C:\\Users\\Mustafa\\.appium\\node_modules\\appium-reporter-plugin\\node_modules\\util-deprecate\\node.js"))
-                .withIPAddress("127.0.0.1")
-                .usingPort(4723)
-                .withTimeout(Duration.ofSeconds(30));
-        appiumServer = AppiumDriverLocalService.buildService(builder);
+                   .withIPAddress("127.0.0.1")
+                   .usingPort(4723)
+                   .withTimeout(Duration.ofSeconds(30));
+           try {
+               appiumServer = AppiumDriverLocalService.buildService(builder);
+           } catch (Exception e) {
+               System.out.println("Calismadi");
+           }
 
-        Thread.sleep(8000);
-        try {
-            System.out.println("maaamammama");
-            appiumServer.start();
-        } catch (AppiumServerHasNotBeenStartedLocallyException e) {
-            throw new RuntimeException(e);
-        }
-        Thread.sleep(8000);
+           Thread.sleep(8000);
+           try {
 
-        getAppiumDriver();
+               appiumServer.start();
+           } catch (Exception e) {
+               System.out.println("calismadi");
+           }
 
 
+
+       }while (!(isAppiumServerRunning("localhost",4723)));
+
+       getAppiumDriver();
     }
 
     @After
@@ -61,7 +67,7 @@ public class Hook {
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-        appiumDriver.quit();
+     appiumDriver.quit();
 
     }
 

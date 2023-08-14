@@ -7,4 +7,4 @@ Feature: Scroll
     Then kullanici API Demos ekraninda
     And kullanici views buttonuna tiklar
     Then kullanici views ekraninda
-    And Scroll
+    And "" elementine  scroll yapilarak tiklar

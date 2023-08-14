@@ -204,29 +204,51 @@ public class ReusableMethods {
 
     }
 
-    public static void scroll(AppiumDriver driver) {
+    public static void scroll(AppiumDriver driver,int scroll) throws InterruptedException {
         Dimension size = driver.manage().window().getSize();
         int startX = size.getWidth() / 2;
         int startY = size.getHeight() / 2;
         int endX = startX;
         int endY = (int) (size.getHeight() * 0.25);
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-        Sequence sequence = new Sequence(finger1, 1)
+
+
+        for (int i = 0; i <scroll ; i++) {
+
+            Sequence sequence1 = new Sequence(finger1, 1)
                 .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
                 .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
                 .addAction(new Pause(finger1, Duration.ofMillis(200)))
                 .addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-
-        driver.perform(Collections.singletonList(sequence));
-
+        driver.perform(Collections.singletonList(sequence1));}
+Thread.sleep(300);
     }
 
 
     private static Point getCenterOfElement(Point location, Dimension size) {
         return new Point(location.getX() + size.getWidth() / 2,
                 location.getY() + size.getHeight() / 2);
+    }
+
+    public static  void tabOnElementWithText(String text) throws InterruptedException {
+
+      List<WebElement> elements = appiumDriver.findElements(AppiumBy.className("android.widget.TextView"));
+
+      for (WebElement element : elements){
+          System.out.println("element.getText() = " + element.getText());
+          if(element.getText().contains(text)){
+              System.out.println("element.getText()111 = " + element.getText());
+
+              element.click();
+              break;
+          }else ReusableMethods.scroll(appiumDriver,1);
+          break;
+      }
+
+
+
     }
 
 
