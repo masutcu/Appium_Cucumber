@@ -1,4 +1,4 @@
-@nuri
+@first
 Feature: API Demos test
   Scenario Outline: Text box data gonderme
     Given kullanici ana ekranda
@@ -15,8 +15,8 @@ Feature: API Demos test
     And screenshot al
     Examples:
       | text   |
-      | Mahmut |
-      | Emre   |
+      | Kalem  |
+      | Defter |
 
 
 

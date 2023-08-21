@@ -5,16 +5,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import screen.AndroidScreen.*;
-import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.time.Duration;
-
-import static utilities.Driver.appiumDriver;
-
-public class FirstTest extends ReusableMethods {
+public class FirstClassSteps extends ReusableMethods {
     Screens screen = new Screens();
 
 

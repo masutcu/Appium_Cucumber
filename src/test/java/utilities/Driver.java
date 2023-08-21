@@ -3,6 +3,7 @@ package utilities;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,10 +19,12 @@ import static hooks.Hook.appiumServer;
 public class Driver {
 
 
-    public static AppiumDriver appiumDriver;
 
 
-    public static AppiumDriver getAppiumDriver()  {
+
+
+    public  static AppiumDriver appiumDriver;
+    public static AppiumDriver getAppiumDriver() {
 
         int port = 4723;
         URL appiumServerURL = null;
@@ -53,15 +56,18 @@ public class Driver {
                 desiredCapabilities.setCapability("appActivity", "com.touchboarder.androidapidemos.MainActivity");
 
                 assert appiumServerURL != null;
+
                 try {
-                    System.out.println("buradabaslatmaya calisyoruz");
+                    System.out.println("DİKATTTTTT   burada baslatmaya calisyoruz");
 
                     appiumDriver = new AndroidDriver(appiumServerURL, desiredCapabilities);
                     appiumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-                    System.out.println("appiumDrivertrtrt = " + appiumDriver);
+                    System.out.println("appiumDriver = " + appiumDriver);
                 } catch (Exception e) {
                     System.out.println("Driver Baslatilamadi");
                 }
+
+
             } else if (ConfigReader.getProperty("platformName").equals("iOS")) {
                 //if you do not provide app path so you should use "bundleId"
                 desiredCapabilities.setCapability("bundleId", ConfigReader.getProperty("iosBundleId"));
@@ -87,12 +93,13 @@ public class Driver {
 
 
     }
+
     public static void quitAppiumDriver() {
         if (appiumDriver != null) {
             appiumDriver.quit();
             appiumDriver = null;
         }
 
-}}
-
+    }
+}
 
