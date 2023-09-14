@@ -18,11 +18,6 @@ import static hooks.Hook.appiumServer;
 
 public class Driver {
 
-
-
-
-
-
     public  static AppiumDriver appiumDriver;
     public static AppiumDriver getAppiumDriver() {
 
@@ -30,6 +25,7 @@ public class Driver {
         URL appiumServerURL = null;
         try {
             appiumServerURL = new URL("http://127.0.0.1:4723/");
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -48,7 +44,8 @@ public class Driver {
             desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60000");
             desiredCapabilities.setCapability("shouldTerminateApp", true);
 
-            System.out.println("desiredCapabilities = " + desiredCapabilities);
+           // System.out.println("desiredCapabilities = " + desiredCapabilities);
+
             if (ConfigReader.getProperty("platformName").equals("android")) {
                 //if you do not provide app path so you should provide "appPackage" and "appActivity"
 
@@ -58,13 +55,12 @@ public class Driver {
                 assert appiumServerURL != null;
 
                 try {
-                    System.out.println("DİKATTTTTT   burada baslatmaya calisyoruz");
-
+                    System.out.println("DİkKATTTTTT   burada baslatmaya calisyoruz");
                     appiumDriver = new AndroidDriver(appiumServerURL, desiredCapabilities);
-                    appiumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+                    appiumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
                     System.out.println("appiumDriver = " + appiumDriver);
                 } catch (Exception e) {
-                    System.out.println("Driver Baslatilamadi");
+                    System.out.println("Lanet Driver Baslatilamadi");
                 }
 
 
@@ -79,9 +75,6 @@ public class Driver {
         }
         return appiumDriver;
     }
-
-
-
 
 
     public static boolean isAppiumServerRunning(String host, int port) {

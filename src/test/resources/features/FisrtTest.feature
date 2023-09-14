@@ -14,9 +14,9 @@ Feature: API Demos test
     And kullanci ok butonuna tikladi
     And screenshot al
     Examples:
-      | text   |
-      | Kalem  |
-      | Defter |
+      | text  |
+      | Kalem |
+      | kitap |
 
 
 

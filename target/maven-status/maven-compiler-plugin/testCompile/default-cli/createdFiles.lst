@@ -5,8 +5,8 @@ screen\AndroidScreen\Screens.class
 stepDef\ScreenshotStepDefs.class
 screen\AndroidScreen\PreferenceDependenciesScreen.class
 screen\AndroidScreen\ApiDemosScreen.class
-stepDef\FirstTest.class
 screen\AndroidScreen\ViewScreen.class
+stepDef\FirstClassSteps.class
 utilities\ConfigReader.class
 screen\AndroidScreen\SwichScreen.class
 stepDef\viewSteps.class

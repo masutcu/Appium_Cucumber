@@ -99,7 +99,7 @@ public class ReusableMethods {
 
     public static boolean isElementPresent(WebElement mobileElement) {
         boolean elementFound = false;
-        waitToBeVisible(mobileElement, Duration.ofSeconds(10));
+        waitToBeVisible(mobileElement, Duration.ofSeconds(20));
         if (mobileElement.isDisplayed()) {
             elementFound = true;
         }
